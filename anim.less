@@ -5,6 +5,8 @@
 @highlight: #55beeb;
 @bg-col: #333;
 
+@pen-width: 768px;
+
 .transition (@value1,@value2:X,...) {
     @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
     -webkit-transition: @value;
@@ -24,7 +26,7 @@ body {
 }
 
 .pen {
-	max-width: 290px;
+	max-width: @pen-width;
 	margin: 0 auto;
 
 	img {
@@ -69,4 +71,9 @@ body {
 	p:last-of-type {
 		margin-bottom: 30px;
 	}
+}
+
+// Pen-related
+.wa-input-container {
+	
 }
