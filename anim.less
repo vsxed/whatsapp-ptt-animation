@@ -1,0 +1,72 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+@grey: #f0f0f0;
+@shadow: rgba(0,0,0,0.165);
+@highlight: #55beeb;
+@bg-col: #333;
+
+.transition (@value1,@value2:X,...) {
+    @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+    -webkit-transition: @value;
+    -moz-transition: @value;
+    -ms-transition: @value;
+    -o-transition: @value;
+    transition: @value;
+}
+
+// -- Codepen related --
+body {
+  padding: 3em 2em;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1;
+  background: @bg-col;
+}
+
+.pen {
+	max-width: 290px;
+	margin: 0 auto;
+
+	img {
+		margin-left: 15px;
+	}
+}
+
+.credit {
+	display: block;
+	max-width: 400px;
+	text-align: center;
+	margin: 75px auto 0;
+	padding: 0;
+	font-size: 0.8em;
+	color: @grey;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.9);
+
+	p a,
+	a {
+		color: white;
+		text-decoration: none;
+		font-weight: 700;
+
+		&:hover,
+		&:active {
+			text-shadow: 0 0 5px rgba(255,255,255,0.4);
+			color: white;
+		}
+
+		&.button {
+			padding: 6px 12px;
+			margin-top: 10px;
+			background: darken(@bg-col, 10%);
+			border-radius: 3px;
+
+			&:hover {
+				background: lighten(@bg-col, 10%);
+			}
+		}
+	}
+
+	p:last-of-type {
+		margin-bottom: 30px;
+	}
+}
