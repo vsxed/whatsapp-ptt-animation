@@ -1,4 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,400);
 body {
   padding: 3em 2em;
   font-family: 'Open Sans', Arial, sans-serif;
@@ -7,7 +9,7 @@ body {
   background: #333333;
 }
 .pen {
-  max-width: 768px;
+  max-width: 334px;
   margin: 0 auto;
 }
 .pen img {
@@ -49,4 +51,56 @@ body {
 }
 .credit p:last-of-type {
   margin-bottom: 30px;
+}
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wa-input-container {
+  background: white;
+  width: 334px;
+  height: 48px;
+}
+.wa-input-container .wa-input {
+  border-bottom: 2px solid #0099cc;
+  width: 260px;
+  margin: 0 auto;
+  height: 40px;
+  position: relative;
+  line-height: 2;
+  padding: 0 10px;
+  border-right: 0;
+  display: block;
+  border-top: 0;
+  border-left: 0;
+}
+.wa-input-container .wa-input input[type=text] {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  width: 100%;
+  display: block;
+  height: 100%;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+.wa-input-container .wa-input input[type=text]:focus {
+  outline: 0;
+}
+.wa-input-container .wa-input:before,
+.wa-input-container .wa-input:after {
+  height: 6px;
+  border-left: 2px solid #0099cc;
+  position: absolute;
+  content: '';
+  display: block;
+  bottom: 0;
+}
+.wa-input-container .wa-input:before {
+  left: 0;
+}
+.wa-input-container .wa-input:after {
+  right: 0;
 }
