@@ -117,6 +117,7 @@ body {
   display: block;
   position: absolute;
   height: 38px;
+  background: #f1f1f1;
   z-index: 2;
   width: 230px;
   right: -230px;
@@ -138,9 +139,9 @@ body {
 .wa-input-container .speech-container .swipe-to-cancel {
   display: block;
   position: absolute;
-  background: #f1f1f1;
+  background: red;
   width: 176px;
-  right: 0;
+  left: 55px;
   background-repeat: no-repeat;
   background-position: 150px;
   background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 25%, #ffffff 50%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
