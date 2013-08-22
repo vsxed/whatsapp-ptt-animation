@@ -2,15 +2,20 @@
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,400);
 body {
-  padding: 3em 2em;
+  padding: 0 0 3em;
+  margin: 0;
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1em;
   line-height: 1;
   background: #333333;
 }
 .pen {
-  max-width: 334px;
+  max-width: 1392px;
+  height: 754px;
   margin: 0 auto;
+  background: url(img/background.jpg) center 0 no-repeat;
+  background-size: auto;
+  position: relative;
 }
 .pen img {
   margin-left: 15px;
@@ -19,10 +24,10 @@ body {
   display: block;
   max-width: 400px;
   text-align: center;
-  margin: 75px auto 0;
+  margin: 0 auto;
   padding: 0;
   font-size: 0.8em;
-  color: #f0f0f0;
+  color: #f1f1f1;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.9);
 }
 .credit p a,
@@ -57,17 +62,22 @@ body {
   box-sizing: border-box;
 }
 .wa-input-container {
-  background: white;
-  width: 334px;
+  background: #f1f1f1;
+  width: 310px;
+  position: relative;
+  margin: 0 auto;
   height: 48px;
+  top: 390px;
+  height: 38px;
 }
 .wa-input-container .wa-input {
   border-bottom: 2px solid #0099cc;
-  width: 260px;
+  width: 228px;
   margin: 0 auto;
-  height: 40px;
+  height: 33px;
   position: relative;
   line-height: 2;
+  z-index: 1;
   padding: 0 10px;
   border-right: 0;
   display: block;
@@ -75,23 +85,21 @@ body {
   border-left: 0;
 }
 .wa-input-container .wa-input input[type=text] {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
+  border: 0;
   width: 100%;
   display: block;
   height: 100%;
-  font-size: 20px;
+  font-size: 15px;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
+  background-color: transparent;
 }
 .wa-input-container .wa-input input[type=text]:focus {
   outline: 0;
 }
 .wa-input-container .wa-input:before,
 .wa-input-container .wa-input:after {
-  height: 6px;
+  height: 4px;
   border-left: 2px solid #0099cc;
   position: absolute;
   content: '';
@@ -103,4 +111,100 @@ body {
 }
 .wa-input-container .wa-input:after {
   right: 0;
+}
+.wa-input-container .speech-container {
+  display: block;
+  position: absolute;
+  height: 38px;
+  z-index: 2;
+  width: 230px;
+  right: -230px;
+  -webkit-transition: right 500ms;
+  -moz-transition: right 500ms;
+  -ms-transition: right 500ms;
+  -o-transition: right 500ms;
+  transition: right 500ms;
+}
+.wa-input-container .speech-container .time {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  position: absolute;
+  height: inherit;
+  padding: 0 3px;
+  line-height: 1.5;
+  background: #f1f1f1;
+}
+.wa-input-container .speech-container .swipe-to-cancel {
+  display: block;
+  position: absolute;
+  background: #f1f1f1;
+  width: 176px;
+  right: 0;
+  background-repeat: no-repeat;
+  background-position: 150px;
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 25%, #ffffff 50%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(25%, rgba(255, 255, 255, 0)), color-stop(50%, #ffffff), color-stop(75%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 25%, #ffffff 50%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 25%, #ffffff 50%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 25%, #ffffff 50%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 25%, #ffffff 50%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  height: inherit;
+  -webkit-animation: swipe 2s infinite;
+  -moz-animation: swipe 2s infinite;
+  -ms-animation: swipe 2s infinite;
+  -o-animation: swipe 2s infinite;
+  animation: swipe 2s infinite;
+}
+.wa-input-container .speech-container .swipe-to-cancel:before {
+  display: block;
+  text-transform: uppercase;
+  content: 'Swipe to cancel';
+  top: 11px;
+  position: relative;
+  text-align: center;
+}
+.wa-input-container .ptt-icon {
+  height: 19px;
+  width: 20px;
+  position: absolute;
+  cursor: pointer;
+}
+.wa-input-container .ptt-icon.record-right {
+  top: 10px;
+  right: 10px;
+}
+.wa-input-container .ptt-icon.emoticon {
+  top: 10px;
+  left: 10px;
+}
+.wa-input-container .ptt-icon svg {
+  height: inherit;
+  width: inherit;
+}
+.wa-input-container .ptt-icon svg .record-icon {
+  fill: #858583;
+}
+@keyframes swipe {
+  from {
+    background-position: 150px;
+  }
+  to {
+    background-position: -150px;
+  }
+}
+@-webkit-keyframes swipe {
+  from {
+    background-position: 150px;
+  }
+  to {
+    background-position: -150px;
+  }
+}
+@-moz-keyframes swipe {
+  from {
+    background-position: 150px;
+  }
+  to {
+    background-position: -150px;
+  }
 }
