@@ -43,47 +43,24 @@ $(document).ready(function (e) {
 			axis: "x", 
 			containment: ".speech-container",
 			drag: function() {
-				if ($('.swipe-to-cancel').offset().left === 203) {
+				if ($('.swipe-to-cancel').offset().left - $('.wa-input-container').offset().left == 40) {
 					$(this).draggable('destroy');
 					$(this).remove();
 					spcon.attr("style", "");
 					recordTime.text('0:00');
 					clearInterval(count);
 					count = 0;
-					time = 0;
+					sec = 0;
+					min = 0;
 				}
-				console.log($(this).offset().left);
+
+			},
+			stop: function() {
+				if ($('.swipe-to-cancel').offset().left - $('.wa-input-container').offset().left > 40) {
+					$(this).css({'left' : '55px'});
+				}
 			}
 		});
 		restartCount();
 	});
-
-
-
-
-
-
-	// pttbtn.on('mouseleave', function() {
-		// $('.swipe-to-cancel').remove();
-		// spcon.attr("style", "");
-		// recordTime.text('0:00');
-		// clearInterval(count);
-		// count = 0;
-		// time = 0;
-	// });
 });
-
-// function() {
-// 	if (count !== 0) {
-// 		return;
-// 	}
-// 	count = setInterval(function () {
-// 		if (time < 10) {
-// 			recordTime.text('0:0' + time++);
-// 		} else if (time = 60) {
-// 			time = 0;
-// 			recordTime.text('1:0' + time++);
-// 		} else {
-// 			recordTime.text('0:' + time++);
-// 		}
-// 	}, 1000);};
