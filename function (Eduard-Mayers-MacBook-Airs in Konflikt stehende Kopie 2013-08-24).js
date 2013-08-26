@@ -34,31 +34,20 @@ $(document).ready(function (e) {
 						return min;}
 		}, 1000);};
 
-	pttbtn.on('click', function(e) {
+	pttbtn.on('mouseenter', function(e) {
 		if ($('.swipe-to-cancel').length == 0) {
-			spcon.prepend('<div class="swipe-to-cancel"></div>');
+			spcon.append('<div class="swipe-to-cancel"></div>');
 		}
 		spcon.css({'right' : "40px"});
-		$('.swipe-to-cancel').draggable({ 
-			axis: "x", 
-			containment: ".speech-container",
-			drag: function() {
-				if ($('.swipe-to-cancel').offset().left === 203) {
-					$(this).draggable('destroy');
-					$(this).remove();
-					spcon.attr("style", "");
-					recordTime.text('0:00');
-					clearInterval(count);
-					count = 0;
-					time = 0;
-				}
-				console.log($(this).offset().left);
-			}
-		});
 		restartCount();
+
+		$('.swipe-to-cancel').on('mousemove', function(e) {
+			var p = $('.wa-input-container').offset().left,
+				o = $(this);
+
+			console.log(e.clientX - p - 55)
+		});
 	});
-
-
 
 
 
