@@ -33,15 +33,7 @@
 }
 
 // -- Codepen related --
-body {
-  padding: 0 0 3em;
-  margin: 0;
-  font-family: 'Open Sans', Arial, sans-serif;
-  font-size: 1em;
-  line-height: 1;
-  background: @bg-col;
-}
-
+body {padding:0 0 3em;margin:0;font-family:'Open Sans', Arial, sans-serif;font-size:1em;line-height:1;background:@bg-col;}
 .pen {
 	max-width: 1392px;
 	height: 754px;
@@ -63,17 +55,12 @@ body {
 	color: @grey;
 	text-shadow: 0 1px 0 rgba(0,0,0,0.9);
 
-	p a,
-	a {
+	p a, a {
 		color: white;
 		text-decoration: none;
 		font-weight: 700;
 
-		&:hover,
-		&:active {
-			text-shadow: 0 0 5px rgba(255,255,255,0.4);
-			color: white;
-		}
+		&:hover, &:active {text-shadow:0 0 5px rgba(255,255,255,0.4);color:white;}
 
 		&.button {
 			padding: 6px 12px;
@@ -206,6 +193,32 @@ body {
 			right: 10px;
 		}
 
+		&.record-left {
+			height: 25px;
+			top: 6px;
+			opacity: 0;
+			left: 10px;
+			width: 20px;
+
+			&.show {opacity: 1;}
+
+			&.small {
+				height: 20px;
+				width: 15px;
+				top: 9px;
+				left: 12px;
+			}
+
+			&.record-start {
+				.transition(opacity, 500ms);
+				.animation(shine 1s infinite 750ms);
+			}
+
+			&.record-delete {
+				.animation(jump 2s 1 250ms forwards);
+			}
+		}
+
 		&.emoticon {
 			top: 10px;
 			left: 10px;
@@ -214,13 +227,25 @@ body {
 		svg {
 			height: inherit;
 			width: inherit;
-			.record-icon {
-				fill: #858583;
-			}
+
+			.record-icon {fill: #858583;}
+			.record-icon-red {fill: #ff3314;}
 		}
 	}
 }
 
+.hide {opacity: 0;}
+
 @keyframes swipe {from { background-position: 150px;} to { background-position: -150px;}}
-@-webkit-keyframes swipe {from { background-position: 150px;} to { background-position: -150px;}}
 @-moz-keyframes swipe {from { background-position: 150px;} to { background-position: -150px;}}
+@-webkit-keyframes swipe {from { background-position: 150px;} to { background-position: -150px;}}
+@keyframes shine {0% {opacity: 1} 60% {opacity: 0.6} 61% {opacity: 0} 100% {opacity: 0}}
+@-moz-keyframes shine {0% {opacity: 1} 60% {opacity: 0.6} 61% {opacity: 0} 100% {opacity: 0}}
+@-webkit-keyframes shine {0% {opacity: 1} 60% {opacity: 0.6} 61% {opacity: 0} 100% {opacity: 0}}
+
+@-webkit-keyframes jump {
+	0% { top: 9px; -webkit-transform: rotate(0deg); opacity: 1; }
+	50% { top: -140px; -webkit-transform: rotate(360deg); opacity: 1; }
+	90% { top: 9px; -webkit-transform: rotate(360deg); opacity: 1; }
+	100% { top: 30px; -webkit-transform: rotate(360deg); opacity: 0; }
+}
