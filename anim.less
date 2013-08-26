@@ -1,7 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,400);
 
-
 @grey: #f0f0f0;
 @shadow: rgba(0,0,0,0.165);
 @highlight: #55beeb;
@@ -11,10 +10,10 @@
 @elem-height: 38px;
 @blue: #0099cc;
 @grey: #f1f1f1;
+@text: #525150;
 @input-border: 2px solid @blue;
 @roboto: "Roboto", sans-serif;
 @hover-width: 230px;
-
 
 .transition (@value1,@value2:X,...) {
     @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
@@ -51,9 +50,7 @@ body {
 	background-size: auto;
 	position: relative;
 
-	img {
-		margin-left: 15px;
-	}
+	img {margin-left: 15px;}
 }
 
 .credit {
@@ -84,23 +81,15 @@ body {
 			background: darken(@bg-col, 10%);
 			border-radius: 3px;
 
-			&:hover {
-				background: lighten(@bg-col, 10%);
-			}
+			&:hover {background: lighten(@bg-col, 10%);}
 		}
 	}
 
-	p:last-of-type {
-		margin-bottom: 30px;
-	}
+	p:last-of-type {margin-bottom: 30px;}
 }
 
 // Pen-related
-
-* {
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
+* {-moz-box-sizing: border-box; box-sizing: border-box;}
 
 .wa-input-container {
 	background: @grey;
@@ -136,9 +125,7 @@ body {
 			font-weight: 300;
 			background-color: transparent;
 
-			&:focus {
-				outline: 0;
-			}
+			&:focus {outline: 0;}
 		}
 
 		&:before,
@@ -172,15 +159,15 @@ body {
 			position: absolute;
 			height: inherit;
 			padding: 0 3px;
-			line-height: 1.5;
+			color: @text;
+			line-height: @elem-height;
 			background: @grey;
 		}
 
 		.swipe-to-cancel {
 			display: block;
 			position: absolute;
-			// background: @grey;
-			background: red;
+			background: @grey;
 			width: 176px;
 			left: 55px;
 			background-repeat: no-repeat;
@@ -199,7 +186,8 @@ body {
 				text-transform: uppercase;
 				content: 'Swipe to cancel';
 				top: 13px;
-				font-size: 14px;
+				color: @text;
+				font-size: 12px;
 				font-weight: 300;
 				position: relative;
 				text-align: center;
@@ -233,17 +221,6 @@ body {
 	}
 }
 
-@keyframes swipe {
-	from { background-position: 150px;}
-	to { background-position: -150px;}
-}
-
-@-webkit-keyframes swipe {
-	from { background-position: 150px;}
-	to { background-position: -150px;}
-}
-
-@-moz-keyframes swipe {
-	from { background-position: 150px;}
-	to { background-position: -150px;}
-}
+@keyframes swipe {from { background-position: 150px;} to { background-position: -150px;}}
+@-webkit-keyframes swipe {from { background-position: 150px;} to { background-position: -150px;}}
+@-moz-keyframes swipe {from { background-position: 150px;} to { background-position: -150px;}}

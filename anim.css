@@ -133,13 +133,14 @@ body {
   position: absolute;
   height: inherit;
   padding: 0 3px;
-  line-height: 1.5;
+  color: #525150;
+  line-height: 40px;
   background: #f1f1f1;
 }
 .wa-input-container .speech-container .swipe-to-cancel {
   display: block;
   position: absolute;
-  background: red;
+  background: #f1f1f1;
   width: 176px;
   left: 55px;
   background-repeat: no-repeat;
@@ -162,7 +163,8 @@ body {
   text-transform: uppercase;
   content: 'Swipe to cancel';
   top: 13px;
-  font-size: 14px;
+  color: #525150;
+  font-size: 12px;
   font-weight: 300;
   position: relative;
   text-align: center;
