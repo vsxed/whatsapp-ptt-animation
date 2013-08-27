@@ -62,21 +62,29 @@ body {
   box-sizing: border-box;
 }
 .wa-input-container {
-  background: #f1f1f1;
   width: 310px;
   font-family: "Roboto", sans-serif;
   position: relative;
   margin: 0 auto;
-  height: 48px;
-  top: 390px;
+  top: 259px;
+  height: 170px;
+  overflow: hidden;
+}
+.wa-input-container .input-bg {
   height: 38px;
+  position: absolute;
+  bottom: 0;
+  width: inherit;
+  background: #f1f1f1;
 }
 .wa-input-container .wa-input {
   border-bottom: 2px solid #0099cc;
   width: 228px;
   margin: 0 auto;
   height: 33px;
-  position: relative;
+  position: absolute;
+  bottom: 6px;
+  left: 40px;
   line-height: 2;
   z-index: 1;
   padding: 0 10px;
@@ -117,6 +125,7 @@ body {
   display: block;
   position: absolute;
   height: 38px;
+  bottom: 0;
   background: #f1f1f1;
   z-index: 2;
   width: 230px;
@@ -169,6 +178,18 @@ body {
   position: relative;
   text-align: center;
 }
+.wa-input-container .bin {
+  bottom: -40px;
+  position: absolute;
+  -webkit-transition: bottom 500ms;
+  -moz-transition: bottom 500ms;
+  -ms-transition: bottom 500ms;
+  -o-transition: bottom 500ms;
+  transition: bottom 500ms;
+}
+.wa-input-container .bin.show {
+  opacity: 1;
+}
 .wa-input-container .ptt-icon {
   height: 19px;
   width: 20px;
@@ -176,12 +197,32 @@ body {
   cursor: pointer;
 }
 .wa-input-container .ptt-icon.record-right {
-  top: 10px;
+  bottom: 10px;
   right: 10px;
+}
+.wa-input-container .ptt-icon.bin-base,
+.wa-input-container .ptt-icon.bin-head {
+  bottom: 3px;
+  width: 25px;
+  height: 25px;
+  left: 7px;
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  -ms-transition: all 250ms;
+  -o-transition: all 250ms;
+  transition: all 250ms;
+}
+.wa-input-container .ptt-icon.bin-head.anim {
+  transform: rotate(-80deg);
+  transform-origin: 20% 40%;
+  -moz-transform: rotate(-80deg);
+  -moz-transform-origin: 20% 40%;
+  -webkit-transform: rotate(-80deg);
+  -webkit-transform-origin: 20% 40%;
 }
 .wa-input-container .ptt-icon.record-left {
   height: 25px;
-  top: 6px;
+  bottom: 6px;
   opacity: 0;
   left: 10px;
   width: 20px;
@@ -192,7 +233,7 @@ body {
 .wa-input-container .ptt-icon.record-left.small {
   height: 20px;
   width: 15px;
-  top: 9px;
+  bottom: 9px;
   left: 12px;
 }
 .wa-input-container .ptt-icon.record-left.record-start {
@@ -215,8 +256,13 @@ body {
   animation: jump 2s 1 250ms forwards;
 }
 .wa-input-container .ptt-icon.emoticon {
-  top: 10px;
+  bottom: 10px;
   left: 10px;
+  -webkit-transition: opacity 250ms;
+  -moz-transition: opacity 250ms;
+  -ms-transition: opacity 250ms;
+  -o-transition: opacity 250ms;
+  transition: opacity 250ms;
 }
 .wa-input-container .ptt-icon svg {
   height: inherit;
@@ -297,24 +343,62 @@ body {
     opacity: 0;
   }
 }
+@keyframes jump {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    bottom: 150px;
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+  85% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+  100% {
+    bottom: -30px;
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+@-moz-keyframes jump {
+  0% {
+    -moz-transform: rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    bottom: 150px;
+    -moz-transform: rotate(360deg);
+    opacity: 1;
+  }
+  85% {
+    -moz-transform: rotate(360deg);
+    opacity: 0;
+  }
+  100% {
+    bottom: -30px;
+    -moz-transform: rotate(360deg);
+    opacity: 0;
+  }
+}
 @-webkit-keyframes jump {
   0% {
-    top: 9px;
     -webkit-transform: rotate(0deg);
     opacity: 1;
   }
   50% {
-    top: -140px;
+    bottom: 150px;
     -webkit-transform: rotate(360deg);
     opacity: 1;
   }
-  90% {
-    top: 9px;
+  85% {
     -webkit-transform: rotate(360deg);
-    opacity: 1;
+    opacity: 0;
   }
   100% {
-    top: 30px;
+    bottom: -30px;
     -webkit-transform: rotate(360deg);
     opacity: 0;
   }
