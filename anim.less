@@ -32,6 +32,13 @@
           animation: @arguments;
 }
 
+.backface (...){
+	backface-visibility:hidden;
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+}
+
 // -- Codepen related --
 body {padding:0 0 3em;margin:0;font-family:'Open Sans', Arial, sans-serif;font-size:1em;line-height:1;background:@bg-col;}
 .pen {
@@ -76,7 +83,60 @@ body {padding:0 0 3em;margin:0;font-family:'Open Sans', Arial, sans-serif;font-s
 }
 
 // Pen-related
-* {-moz-box-sizing: border-box; box-sizing: border-box;}
+* {
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+
+.tutorial-dimmer {
+	position: fixed;
+	height: auto !important;
+	height: 100%;
+	min-height: 100%;
+	width:100%;
+	background: rgba(0, 0, 0, 0.4);
+	top:0;
+	z-index: 999;
+}
+
+.start-here {
+	max-width: 300px;
+	margin: 0 auto;
+	left: 20px;
+	z-index:1000;
+	height: 130px;
+	top: 125px;
+	position: relative;
+	text-align: right;
+
+	p {
+		color: white;
+		text-shadow: 0 2px 3px rgba(0,0,0,0.3);
+		font-weight: 400;
+		font-size: 20px;
+		font-family: @roboto;
+		position: relative;
+		right: -20px;
+		top: 20px;
+	}
+
+	.circle {
+		width: 70px;
+		height: 70px;
+		background: @blue;
+		opacity: 0.4;
+		border-radius: 60px;
+		display: block;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		.backface();
+		-webkit-transform-origin: 50% 50%;
+		-moz-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+		.animation(pulse 2s infinite);
+	}
+}
 
 .wa-input-container {
 	// background: @grey;
@@ -150,6 +210,7 @@ body {padding:0 0 3em;margin:0;font-family:'Open Sans', Arial, sans-serif;font-s
 		width: @hover-width;
 		right: -@hover-width;
 		.transition(right 500ms);
+		.backface();
 
 		.time {
 			font-family: @roboto;
@@ -198,6 +259,7 @@ body {padding:0 0 3em;margin:0;font-family:'Open Sans', Arial, sans-serif;font-s
 		bottom: -40px;
 		position: absolute;
 		.transition(bottom 500ms);
+		.backface();
 
 		&.show {opacity: 1;}
 	}
@@ -219,6 +281,7 @@ body {padding:0 0 3em;margin:0;font-family:'Open Sans', Arial, sans-serif;font-s
 			height: 25px;
 			left: 7px;
 			.transition(all 250ms);
+			.backface();
 		}
 
 		&.bin-head.anim {
@@ -228,6 +291,7 @@ body {padding:0 0 3em;margin:0;font-family:'Open Sans', Arial, sans-serif;font-s
 			-moz-transform-origin:20% 40%;
 			-webkit-transform: rotate(-80deg);
 			-webkit-transform-origin:20% 40%;
+			.backface();
 		}
 
 		&.record-left {
@@ -249,10 +313,12 @@ body {padding:0 0 3em;margin:0;font-family:'Open Sans', Arial, sans-serif;font-s
 			&.record-start {
 				.transition(opacity, 500ms);
 				.animation(shine 1s infinite 750ms);
+				.backface();
 			}
 
 			&.record-delete {
 				.animation(jump 2s 1 250ms forwards);
+				.backface();
 			}
 		}
 
@@ -260,6 +326,7 @@ body {padding:0 0 3em;margin:0;font-family:'Open Sans', Arial, sans-serif;font-s
 			bottom: 10px;
 			left: 10px;
 			.transition(opacity 250ms);
+			.backface();
 		}
 
 		svg {
@@ -285,3 +352,22 @@ body {padding:0 0 3em;margin:0;font-family:'Open Sans', Arial, sans-serif;font-s
 @keyframes jump {0% {transform: rotate(0deg);opacity: 1;} 50% {bottom: 150px;transform: rotate(360deg);opacity: 1;} 85% {transform: rotate(360deg);opacity: 0;} 100% {bottom: -30px;transform: rotate(360deg);opacity: 0;}}
 @-moz-keyframes jump {0% {-moz-transform: rotate(0deg);opacity: 1;} 50% {bottom: 150px;-moz-transform: rotate(360deg);opacity: 1;} 85% {-moz-transform: rotate(360deg);opacity: 0;} 100% {bottom: -30px;-moz-transform: rotate(360deg);opacity: 0;}}
 @-webkit-keyframes jump {0% {-webkit-transform: rotate(0deg);opacity: 1;} 50% {bottom: 150px;-webkit-transform: rotate(360deg);opacity: 1;} 85% {-webkit-transform: rotate(360deg);opacity: 0;} 100% {bottom: -30px;-webkit-transform: rotate(360deg);opacity: 0;}}
+
+@-webkit-keyframes pulse {
+	0% { -webkit-transform: scale(1); opacity: 0.4}
+	2% { -webkit-transform: scale(1.1);}
+	4% { -webkit-transform: scale(1);}
+	100% {-webkit-transform: scale(1.7); opacity: 0.0}
+}
+@keyframes pulse {
+	0% { transform: scale(1); opacity: 0.4}
+	2% { transform: scale(1.1);}
+	4% { transform: scale(1);}
+	100% {transform: scale(1.7); opacity: 0.0}
+}
+@-moz-keyframes pulse {
+	0% { -moz-transform: scale(1); opacity: 0.4}
+	2% { -moz-transform: scale(1.1);}
+	4% { -moz-transform: scale(1);}
+	100% {-moz-transform: scale(1.7); opacity: 0.0}
+}

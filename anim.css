@@ -61,6 +61,59 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.tutorial-dimmer {
+  position: fixed;
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  z-index: 999;
+}
+.start-here {
+  max-width: 300px;
+  margin: 0 auto;
+  left: 20px;
+  z-index: 1000;
+  height: 130px;
+  top: 125px;
+  position: relative;
+  text-align: right;
+}
+.start-here p {
+  color: white;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  font-size: 20px;
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  right: -20px;
+  top: 20px;
+}
+.start-here .circle {
+  width: 70px;
+  height: 70px;
+  background: #0099cc;
+  opacity: 0.4;
+  border-radius: 60px;
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-animation: pulse 2s infinite;
+  -moz-animation: pulse 2s infinite;
+  -ms-animation: pulse 2s infinite;
+  -o-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
+}
 .wa-input-container {
   width: 310px;
   font-family: "Roboto", sans-serif;
@@ -135,6 +188,10 @@ body {
   -ms-transition: right 500ms;
   -o-transition: right 500ms;
   transition: right 500ms;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 .wa-input-container .speech-container .time {
   font-family: "Roboto", sans-serif;
@@ -186,6 +243,10 @@ body {
   -ms-transition: bottom 500ms;
   -o-transition: bottom 500ms;
   transition: bottom 500ms;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 .wa-input-container .bin.show {
   opacity: 1;
@@ -211,6 +272,10 @@ body {
   -ms-transition: all 250ms;
   -o-transition: all 250ms;
   transition: all 250ms;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 .wa-input-container .ptt-icon.bin-head.anim {
   transform: rotate(-80deg);
@@ -219,6 +284,10 @@ body {
   -moz-transform-origin: 20% 40%;
   -webkit-transform: rotate(-80deg);
   -webkit-transform-origin: 20% 40%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 .wa-input-container .ptt-icon.record-left {
   height: 25px;
@@ -247,6 +316,10 @@ body {
   -ms-animation: shine 1s infinite 750ms;
   -o-animation: shine 1s infinite 750ms;
   animation: shine 1s infinite 750ms;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 .wa-input-container .ptt-icon.record-left.record-delete {
   -webkit-animation: jump 2s 1 250ms forwards;
@@ -254,6 +327,10 @@ body {
   -ms-animation: jump 2s 1 250ms forwards;
   -o-animation: jump 2s 1 250ms forwards;
   animation: jump 2s 1 250ms forwards;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 .wa-input-container .ptt-icon.emoticon {
   bottom: 10px;
@@ -263,6 +340,10 @@ body {
   -ms-transition: opacity 250ms;
   -o-transition: opacity 250ms;
   transition: opacity 250ms;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 .wa-input-container .ptt-icon svg {
   height: inherit;
@@ -400,6 +481,54 @@ body {
   100% {
     bottom: -30px;
     -webkit-transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    opacity: 0.4;
+  }
+  2% {
+    -webkit-transform: scale(1.1);
+  }
+  4% {
+    -webkit-transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.7);
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  2% {
+    transform: scale(1.1);
+  }
+  4% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+@-moz-keyframes pulse {
+  0% {
+    -moz-transform: scale(1);
+    opacity: 0.4;
+  }
+  2% {
+    -moz-transform: scale(1.1);
+  }
+  4% {
+    -moz-transform: scale(1);
+  }
+  100% {
+    -moz-transform: scale(1.7);
     opacity: 0;
   }
 }

@@ -29,6 +29,12 @@ $(document).ready(function (e) {
 						return min;}
 		}, 1000);};
 
+	// Initialize tutorial
+	$('.circle').on('mouseover', function() {
+		$('.start-here, .tutorial-dimmer').remove();
+	});
+
+
 	pttbtn.on('click', function(e) {
 		if ($('.swipe-to-cancel').length == 0) {
 			spcon.prepend('<div class="swipe-to-cancel"></div>');
